@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Springs ICO</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <style>
+    .margin-top-3 {
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body class="container">
+  <h1>Springs Rinkeby ICO </h1>
+  <div class="col-sm-7 margin-top-3">
+    <h2>Fields available for investment</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Tokens</th>
+            <th>Field share</th>
+          </tr>
+        </thead>
+        <tbody id="field-rows">
+        </tbody>
+      </table>
+    </div>
+    <div class="container-fluid">
+      <h2>Invest in:</h2>
+      <div id="msg"></div>
+      <select id="field">
+
+      </select>
+      <br>
+      <br>
+      <input type="text" id="invest-tokens" placeholder="Total no. of tokens to invest"/>
+      <br>
+      <br>
+      <a href="#" onclick="invest()" class="btn btn-primary">Invest</a>
+    </div>
+  </div>
+  <div class="col-sm-offset-1 col-sm-4 margin-top-3">
+    <div class="row">
+      <h2>Global Statistics</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <td>Tokens For Sale</td>
+            <td id="tokens-total"></td>
+          </tr>
+          <tr>
+            <td>Tokens Sold</td>
+            <td id="tokens-sold"></td>
+          </tr>
+          <tr>
+            <td>Share Sold</td>
+            <td id="share"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row margin-top-3">
+      <h2>Purchase Tokens (<span id="token-cost"></span> Ether / token)</h2>
+      <div class="col-sm-12">
+        <div id="buy-msg"></div>
+        <input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy"/>&nbsp;
+        <a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
+      </div>
+    </div>
+    <div class="row margin-top-3">
+      <h2>Investor Lookup</h2>
+      <div class="col-sm-12">
+        <input type="text" id="address-input", class="col-sm-8" placeholder="Enter your wallet address" />&nbsp;
+        <a href="#" onclick="investorInfo()" class="btn btn-primary">Check Investor Data</a>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tr>
+              <td>Investor Wallet Address</td>
+              <td id="investor-address"></td>
+            </tr>
+            <tr>
+              <td>Tokens Bought</td>
+              <td id="investor-bought"></td>
+            </tr>
+            <tr>
+              <td>Tokens Invested</td>
+              <td id="investor-invested"></td>
+            </tr>
+            <tr>
+              <td>Total Share</td>
+              <td id="investor-share"></td>
+            </tr>
+            <tr>
+              <td>Share By Industry</td>
+              <td id="investor-industry"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a href="https://springsapps.com">springsapps.com</a>
+      <a href="https://www.facebook.com/springsdev">Facebook</a>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>
