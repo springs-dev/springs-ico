@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOMER Documentation - HTML/jQuery</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+<div class="color-line">
+</div>
+<div id="logo" class="light-version">
+        <span>
+            HOMER Documentation - ASP MVC5
+        </span>
+</div>
+
+<div id="wrapper">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h3><strong>HOMER</strong> <br/> ASP MVC5 Responsive WebApp</h3>
+                                <p>Thank you for purchasing HOMER admin theme. If you have any questions about the template, please feel free to contact us via email: support@webapplayers.com. </p>
+                                <p>
+                                        <strong>Documentation created:</strong> 10/04/2015<br>
+                                        <strong>Latest update:</strong> 26/07/2015<br>
+                                        <strong>By:</strong> WebAppLayers Team<br>
+                                </p>
+                                <p >
+                                    This documentation is focused on HOMER ASP MVC5 version. It assumes a minimum knowledge of html/css/js language. It describe mainly files and structure in project.
+                                    <br/><br/>Please note that this documentation is dedicated to the main element of the template. With each version, we will try to develop it.
+                                    <br/><br/>But if you have any questions going beyond what is described here don't hesitate to write to us on support email. We would love to help.
+                                </p>
+                                <a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                            </div>
+                            <div class="col-lg-7">
+                                <img class="img-responsive m-t-lg" src="images/preview.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Technology and structure</h3>
+
+                        <p><strong>Tool and Technologies used:</strong>
+                        <ul>
+                            <li>
+                                Visual Studio 2013
+                            </li>
+                            <li>
+                                .Net Framework 4.5.1.
+                            </li>
+                            <li>
+                                MVC 5
+                            </li>
+                            <li>
+                                Bootstrap 3 UI Framework.
+                            </li>
+                            <li>
+                                HOMER resources
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                            <h3>Structure</h3>
+                            <h4>Folders and files</h4>
+
+                            <p>HOMER ASP.NET MVC theme consists project files for Visual Studio 2013 with below structure:</p>
+
+                            <div><pre class="prettyprint linenums">
+<code>Homer_MVC/
+    ├── <strong>App_Data/</strong>
+    ├── <strong>App_Start/</strong>
+    ├── <strong>bin/</strong>
+    ├── <strong>Content/</strong>
+    ├── <strong>Controllers/</strong>
+    ├── <strong>Helpers/</strong>
+    ├── <strong>Icons/</strong>
+    ├── <strong>Images/</strong>
+    ├── <strong>Models/</strong>
+    ├── <strong>obj/</strong>
+    ├── <strong>Properties/</strong>
+    ├── <strong>Scripts/</strong>
+    ├── <strong>Vendor/</strong>
+    ├── <strong>Views/</strong>
+    ├── Global.asax
+    ├── Global.asax.cs
+    ├── Homer_MVC.csproj
+    ├── Homer_MVC.csproj.user
+    ├── package.config
+    ├── Web.config
+    ├── Web.Debug.config
+    ├── Web.Release.config
+</code></pre>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure</h3>
+
+                            <p>Main index layout are created with few main elements:</p>
+                            <ol>
+                                <li><code>_Header</code> top header.</li>
+                                <li><code>_Navigation</code> left sidebar navigation.</li>
+                                <li><code>@RenderBody</code> main container for page elements.</li>
+                                <li><code>_Right_Sidebar</code> additional right sidebar.</li>
+                                <li><code>_Footer</code> bottom footer.</li>
+                            </ol>
+
+                            <a href="images/layout_mvc.png" target="_blank"><img alt="page structure" src="images/layout_mvc.png" class="img-responsive"></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure - file</h3>
+                        <p>
+                            This is example of basic (minimal version) layout structure.
+                        </p>
+<pre class="prettyprint linenums">
+
+   &lt;!-- Header --&gt;
+    &lt;div id="header"&gt;
+        @Html.Partial("_Header")
+    &lt;/div&gt;
+
+    &lt;!-- Navigation --&gt;
+    &lt;aside id="menu"&gt;
+        @Html.Partial("_Navigation")
+    &lt;/aside&gt;
+
+    &lt;!-- Main view  --&gt;
+    &lt;div id="wrapper"&gt;
+        @RenderBody()
+
+        &lt;!-- Right Sidebar --&gt;
+        @Html.Partial("Right_Sidebar")
+
+        &lt;!-- Footer --&gt;
+        @Html.Partial("_Footer")
+
+
+    &lt;/div&gt;
+
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="hpanel">
+
+                    <div class="panel-body">
+
+                        <h3>Layout structure</h3>
+
+                        <p>Page <code>&lt;head /&gt;</code> contains Metadata and CSS bundle files for theme. We use special section <b>@RenderSection</b>, to import styles for specific plugins on pages that need it.</p>
+            <pre class="prettyprint linenums">
+
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+
+    &lt;title&gt;HOMER | @ViewBag.Title&lt;/title&gt;
+
+    &lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'&gt;
+
+    &lt;!-- Primary vendor style --&gt;
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/animate/css")
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/peicon7stroke/css")
+
+    &lt;!-- Add local styles, mostly for plugins css file --&gt;
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+
+    &lt;!-- Primary HOMER style --&gt;
+    @Styles.Render("~/bundles/homer/css")
+&lt;/head&gt;
+</pre>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="hpanel">
+
+                    <div class="panel-body">
+
+                        <h3>Page Script </h3>
+
+                        <p>On bottom of file are bundle script located. _Layout.cshtml contains all major plugin scripts and Homer scripts.
+                            In section <b>@RenderSection</b>, will be import scripts for specific plugins on pages that need it.
+                        </p>
+            <pre class="prettyprint linenums">
+
+    &lt;!-- Section for main scripts render --&gt;
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/homer/js")
+
+    &lt;!-- Handler for local scripts --&gt;
+    @RenderSection("scripts", required: false)
+
+</pre>
+                        <hr>
+
+                        <h3>Adding Plugin (special styles file and scripts)</h3>
+
+                        <p>To add for example bootstrapTour plugin  at the bottom of page (view) you have to specifie <b>Styles</b> and <b>Scripts</b> with name plugin as example below. Or if you
+                            want to add it to entire app you can add it to _Layout file. </p>
+            <pre class="prettyprint linenums">
+
+@section Styles {
+    @Styles.Render("~/bundles/bootstrapTour/css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrapTour/js")
+
+    &lt;script type="text/javascript"&gt;
+        $(function () {
+
+            // Local scripts
+
+        });
+    &lt;/script&gt;
+}
+
+</pre>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed sidebar</h3>
+
+                        <p>Fixed sidebar is a (left menu) sidebar that is sticked on screen. </p>
+                        <p>To add fixed sidebar you need to add .fixed-sidebar class to body. </p>
+                        <pre class="prettyprint linenums">
+
+&lt;body class="fixed-sidebar"&gt;
+
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed navbar</h3>
+                        <p>
+                            Fixed navbar is a top navbar that is sticked on screen.
+                        </p>
+                        <p>To add fixed sidebar you need to add .fixed-navbar class to body. </p>
+                         <pre class="prettyprint linenums">
+
+&lt;body class="fixed-navbar"&gt;
+
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="hpanel">
+
+                    <div class="panel-body">
+
+                        <h3>BundleConfig.cs</h3>
+
+                        <p>Bundle contains all neccesery scripts and style. You can add it to any part of your app. With convention:<br/><br/>
+
+                            <b>CSS styles:</b> @Styles.Render("~/bundles/<b>{PluginName}</b>/css")
+                            <br/>
+                            <b>JS scripts:</b> @Scripts.Render("~/bundles/<b>{PluginName}</b>/js")
+                        </p>
+
+                        <p>
+
+                            Please note that some plugin have own images so path to the bundle has to be relative for example starRating plugins.
+                        </p>
+                        <br/>
+            <pre class="prettyprint linenums">
+            // Homer style
+            bundles.Add(new StyleBundle("~/bundles/homer/css").Include(
+                      "~/Content/style.css", new CssRewriteUrlTransform()));
+
+            // Homer script
+            bundles.Add(new ScriptBundle("~/bundles/homer/js").Include(
+                      "~/Vendor/metisMenu/dist/metisMenu.min.js",
+                      "~/Vendor/iCheck/icheck.min.js",
+                      "~/Vendor/peity/jquery.peity.min.js",
+                      "~/Vendor/sparkline/index.js",
+                      "~/Scripts/homer.js",
+                      "~/Scripts/charts.js"));
+
+            // Animate.css
+            bundles.Add(new StyleBundle("~/bundles/animate/css").Include(
+                      "~/Vendor/animate.css/animate.min.css"));
+
+            // Pe-icon-7-stroke
+            bundles.Add(new StyleBundle("~/bundles/peicon7stroke/css").Include(
+                      "~/Icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css", new CssRewriteUrlTransform()));
+
+            // Font Awesome icons style
+            bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
+                      "~/Vendor/fontawesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
+
+            // Bootstrap style
+            bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
+                      "~/Vendor/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform()));
+
+            // Bootstrap
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
+                      "~/Vendor/bootstrap/dist/js/bootstrap.min.js"));
+
+            // jQuery
+            bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
+                      "~/Vendor/jquery/dist/jquery.min.js"));
+
+            // jQuery UI
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui/js").Include(
+                      "~/Vendor/jquery-ui/jquery-ui.min.js"));
+
+            // Flot chart
+            bundles.Add(new ScriptBundle("~/bundles/flot/js").Include(
+                      "~/Vendor/flot/jquery.flot.js",
+                      "~/Vendor/flot/jquery.flot.tooltip.min.js",
+                      "~/Vendor/flot/jquery.flot.resize.js",
+                      "~/Vendor/flot/jquery.flot.pie.js",
+                      "~/Vendor/flot.curvedlines/curvedLines.js",
+                      "~/Vendor/jquery.flot.spline/index.js"));
+
+            // Star rating
+            bundles.Add(new ScriptBundle("~/bundles/starRating/js").Include(
+                      "~/Vendor/bootstrap-star-rating/js/star-rating.min.js"));
+
+            // Star rating style
+            bundles.Add(new StyleBundle("~/bundles/starRating/css").Include(
+                      "~/Vendor/bootstrap-star-rating/css/star-rating.min.css", new CssRewriteUrlTransform()));
+
+            // Sweetalert
+            bundles.Add(new ScriptBundle("~/bundles/sweetAlert/js").Include(
+                      "~/Vendor/sweetalert/lib/sweet-alert.min.js"));
+
+            // Sweetalert style
+            bundles.Add(new StyleBundle("~/bundles/sweetAlert/css").Include(
+                      "~/Vendor/sweetalert/lib/sweet-alert.css"));
+
+            // Toastr
+            bundles.Add(new ScriptBundle("~/bundles/toastr/js").Include(
+                      "~/Vendor/toastr/build/toastr.min.js"));
+
+            // Toastr style
+            bundles.Add(new StyleBundle("~/bundles/toastr/css").Include(
+                      "~/Vendor/toastr/build/toastr.min.css"));
+
+            // Nestable
+            bundles.Add(new ScriptBundle("~/bundles/nestable/js").Include(
+                      "~/Vendor/nestable/jquery.nestable.js"));
+
+            // Toastr
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapTour/js").Include(
+                      "~/Vendor/bootstrap-tour/build/js/bootstrap-tour.min.js"));
+
+            // Toastr style
+            bundles.Add(new StyleBundle("~/bundles/bootstrapTour/css").Include(
+                      "~/Vendor/bootstrap-tour/build/css/bootstrap-tour.min.css"));
+
+            // Moment
+            bundles.Add(new ScriptBundle("~/bundles/moment/js").Include(
+                      "~/Vendor/moment/moment.js"));
+
+            // Full Calendar
+            bundles.Add(new ScriptBundle("~/bundles/fullCalendar/js").Include(
+                      "~/Vendor/fullcalendar/dist/fullcalendar.min.js"));
+
+            // Full Calendar style
+            bundles.Add(new StyleBundle("~/bundles/fullCalendar/css").Include(
+                      "~/Vendor/fullcalendar/dist/fullcalendar.min.css"));
+
+            // Chart JS
+            bundles.Add(new ScriptBundle("~/bundles/chartjs/js").Include(
+                      "~/Vendor/chartjs/Chart.min.js"));
+
+            // Datatables
+            bundles.Add(new ScriptBundle("~/bundles/datatables/js").Include(
+                      "~/Vendor/datatables/media/js/jquery.dataTables.min.js"));
+
+            // Datatables bootstrap
+            bundles.Add(new ScriptBundle("~/bundles/datatablesBootstrap/js").Include(
+                      "~/Vendor/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"));
+
+            // Datatables style
+            bundles.Add(new StyleBundle("~/bundles/datatables/css").Include(
+                      "~/Vendor/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.css"));
+
+            // Xeditable
+            bundles.Add(new ScriptBundle("~/bundles/xeditable/js").Include(
+                      "~/Vendor/xeditable/bootstrap3-editable/js/bootstrap-editable.min.js"));
+
+            // Xeditable style
+            bundles.Add(new StyleBundle("~/bundles/xeditable/css").Include(
+                      "~/Vendor/xeditable/bootstrap3-editable/css/bootstrap-editable.css", new CssRewriteUrlTransform()));
+
+            // Select 2
+            bundles.Add(new ScriptBundle("~/bundles/select2/js").Include(
+                      "~/Vendor/select2-3.5.2/select2.min.js"));
+
+            // Select 2 style
+            bundles.Add(new StyleBundle("~/bundles/select2/css").Include(
+                      "~/Vendor/select2-3.5.2/select2.css",
+                      "~/Vendor/select2-bootstrap/select2-bootstrap.css"));
+
+            // Touchspin
+            bundles.Add(new ScriptBundle("~/bundles/touchspin/js").Include(
+                      "~/Vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"));
+
+            // Touchspin style
+            bundles.Add(new StyleBundle("~/bundles/touchspin/css").Include(
+                      "~/Vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css"));
+
+            // Datepicker
+            bundles.Add(new ScriptBundle("~/bundles/datepicker/js").Include(
+                      "~/Vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"));
+
+            // Datepicker style
+            bundles.Add(new StyleBundle("~/bundles/datepicker/css").Include(
+                      "~/Vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.min.css"));
+
+            // Datepicker
+            bundles.Add(new ScriptBundle("~/bundles/summernote/js").Include(
+                      "~/Vendor/summernote/dist/summernote.min.js"));
+
+            // Datepicker style
+            bundles.Add(new StyleBundle("~/bundles/summernote/css").Include(
+                      "~/Vendor/summernote/dist/summernote.css",
+                      "~/Vendor/summernote/dist/summernote-bs3.css"));
+
+            // Bootstrap checkbox style
+            bundles.Add(new StyleBundle("~/bundles/bootstrapCheckbox/css").Include(
+                      "~/Vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"));
+
+            // Blueimp gallery
+            bundles.Add(new ScriptBundle("~/bundles/blueimp/js").Include(
+                      "~/Vendor/blueimp-gallery/js/jquery.blueimp-gallery.min.js"));
+
+            // Blueimp gallery style
+            bundles.Add(new StyleBundle("~/bundles/blueimp/css").Include(
+                      "~/Vendor/blueimp-gallery/css/blueimp-gallery.min.css", new CssRewriteUrlTransform()));
+
+</pre>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body text-center">
+
+                        <h3>Contact</h3>
+                        <p>
+                            If you have any question or find some issue feel free to contact with us on  <br/><br/><a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="assets/jquery/dist/jquery.min.js"></script>
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/google-code-prettify/prettify.js"></script>
+
+<script>
+    $(function () {
+        window.prettyPrint && prettyPrint();
+    })
+</script>
+
+</html>

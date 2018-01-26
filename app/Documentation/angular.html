@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOMER Documentation - AngularJS</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+<div class="color-line">
+</div>
+<div id="logo" class="light-version">
+        <span>
+            HOMER Documentation - AngularJS
+        </span>
+</div>
+
+<div id="wrapper">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h3><strong>HOMER</strong> <br/> AngularJS Responsive WebApp</h3>
+                                <p>Thank you for purchasing HOMER admin theme. If you have any questions about the template, please feel free to contact us via email: support@webapplayers.com. </p>
+                                <p>
+                                        <strong>Documentation created:</strong> 06/02/2015<br>
+                                        <strong>Latest update:</strong> 26/07/2015<br>
+                                        <strong>By:</strong> WebAppLayers Team<br>
+                                </p>
+                                <p >
+                                    This documentation is focused on HOMER AngularJs version. It assumes a minimum knowledge of AngularJS framework and html/css/js language. It describe mainly files and structure in project.
+                                    <br/><br/>Please note that this documentation is dedicated to the main element of the template. With each version, we will try to develop it.
+                                    <br/><br/>But if you have any questions going beyond what is described here don't hesitate to write to us on support email. We would love to help.
+                                </p>
+                                <a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                            </div>
+                            <div class="col-lg-7">
+                                <img class="img-responsive m-t-lg" src="images/preview.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                            <h3>Structure</h3>
+                            <h4>Folders and files</h4>
+
+                            <p>File pack consists Homer_Full_Version, Homer_Seed_Project and Documentation folder. In Homer full/seed app folder, structure presents as below.</p>
+
+                            <div><pre class="prettyprint linenums">
+<code>Homer/
+    ├── <strong>app/</strong>
+    ├── <strong>bower_components/</strong>
+    ├── <strong>dist/</strong>
+    ├── <strong>node_modules/</strong>
+    ├── bower.json
+    ├── Gruntfile.js
+    ├── package.json
+</code></pre>
+                            </div>
+
+                        <p>Source code of your app are located in <code>app</code> folder with structure:</p>
+                        <div><pre class="prettyprint linenums">
+<code>app/
+    ├── <strong>fonts/</strong>
+    ├── <strong>icons/</strong>
+    ├── <strong>images/</strong>
+    ├── <strong>less/</strong>
+    ├── <strong>scripts/</strong>
+    ├── <strong>styles/</strong>
+    ├── <strong>views/</strong>
+    ├── index.html
+    ├── favicon.ico
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>First run</h3>
+                        <h4>Grunt environment</h4>
+                        <p>
+                            To run HOMER you will need a <strong class="text-danger">Node</strong>  and <strong class="text-danger">Git</strong>  instaled in your environment. If you don't have a node.js please go to this site http://nodejs.org and download and install proper version and for Git this site: http://git-scm.com/downloads.
+                        </p>
+                        <p>
+                            Next you will need to install grunt
+                        </p>
+<pre class="prettyprint linenums">
+
+npm install -g grunt-cli
+
+</pre>
+                        <p>
+                            Next you will need to install bower
+                        </p>
+<pre class="prettyprint linenums">
+
+npm install -g bower
+
+</pre>
+
+                        <p>
+                            And after that go to Homer folder and run those commands to get all dependencies:
+                            *(in v.1.5 we include all bower packages)
+                        </p>
+
+<pre class="prettyprint linenums">
+
+npm install
+bower install
+
+</pre>
+
+                        <p>Grunt file is based on Yeoman angular generator with some changes. There are three main task that you can do:</p>
+
+                        <ul>
+                            <li>
+                                <code>grunt live</code> to launch a browser sync server on your source files
+                            </li>
+                            <li>
+                                <code>grunt server</code> to launch a server on your optimized application
+                            </li>
+                            <li>
+                                <code>grunt build</code> to build an optimized version of your application in /dist
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure</h3>
+
+                            <p>Main index file include only ui-view. Each state has own content layout that can be
+                                modified in /views/common/content.html file. Basic layout are created with few main elements:</p>
+                            <ol>
+                                <li><code>header</code> top header.</li>
+                                <li><code>aside menu</code> left sidebar navigation.</li>
+                                <li><code>ui-view</code> main container for page elements.</li>
+                                <li><code>right-sidebar</code> additional right sidebar.</li>
+                                <li><code>footer</code> bottom footer.</li>
+                            </ol>
+
+                            <a href="images/layout.png" target="_blank"><img alt="page structure" src="images/layout.png" class="img-responsive"></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure - file</h3>
+                        <p>
+                            This is example of basic (minimal version) layout structure.
+                        </p>
+<pre class="prettyprint linenums">
+
+&lt;!-- Header --&gt;
+&lt;div id="header" ng-include="'views/common/header.html'"&gt;&lt;/div&gt;
+
+&lt;!-- Navigation --&gt;
+&lt;aside id="menu" ng-include="'views/common/navigation.html'"&gt;&lt;/aside&gt;
+
+&lt;!-- Main Wrapper --&gt;
+&lt;div id="wrapper"&gt;
+
+    &lt;div ui-view &gt;&lt;/div&gt;
+
+    &lt;!-- Right sidebar --&gt;
+    &lt;div id="right-sidebar" ng-include="'views/common/right_sidebar.html'" class="sidebar-open" ng-show="rightSidebar"&gt;&lt;/div&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;footer class="footer" ng-include="'views/common/footer.html'"&gt;&lt;/footer&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed sidebar</h3>
+
+                        <p>Fixed sidebar is a (left menu) sidebar that is sticked on screen. </p>
+                        <p>To add fixed sidebar you need to add .fixed-sidebar class to body. </p>
+                        <pre class="prettyprint linenums">
+
+&lt;body class="fixed-sidebar" &gt;
+
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed navbar</h3>
+                        <p>
+                            Fixed navbar is a top navbar that is sticked on screen.
+                        </p>
+                        <p>To add fixed sidebar you need to add .fixed-navbar class to body. </p>
+                         <pre class="prettyprint linenums">
+
+&lt;body class="fixed-navbar" &gt;
+
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure - different version</h3>
+                        <p>
+                            Separation layout gives you ability to create and modify own layout structure for different pages.
+                            For example Dashboard has layout without special header while all views from Interface has special header with automatic breadcrumb.
+                        </p>
+<pre class="prettyprint linenums">
+
+&lt;!-- Header --&gt;
+&lt;div id="header" ng-include="'views/common/header.html'"&gt;&lt;/div&gt;
+
+&lt;!-- Navigation --&gt;
+&lt;aside id="menu" ng-include="'views/common/navigation.html'"&gt;&lt;/aside&gt;
+
+&lt;!-- Main Wrapper --&gt;
+&lt;div id="wrapper"&gt;
+    &lt;div small-header class="normalheader transition animated fadeIn"&gt;
+        &lt;div class="hpanel"&gt;
+            &lt;div class="panel-body"&gt;
+                &lt;a ng-click="small()" href=""&gt;
+                    &lt;div class="clip-header"&gt;
+                        &lt;i class="fa fa-arrow-up"&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+
+                &lt;div id="hbreadcrumb" class="pull-right m-t-lg"&gt;
+                    &lt;ol class="hbreadcrumb breadcrumb"&gt;
+                        &lt;li&gt;&lt;a ui-sref="dashboard"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+                        &lt;li ng-repeat="state in $state.$current.path" ng-switch="$last || !!state.abstract" ng-class="{active: $last}"&gt;
+                            &lt;a ng-switch-when="false" href="#{{state.url.format($stateParams)}}"&gt;{{state.data.pageTitle}}&lt;/a&gt;
+                            &lt;span ng-switch-when="true"&gt;{{state.data.pageTitle}}&lt;/span&gt;
+                        &lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/div&gt;
+                &lt;h2 class="font-light m-b-xs"&gt;
+                    {{ $state.current.data.pageTitle }}
+                &lt;/h2&gt;
+                &lt;small&gt;{{ $state.current.data.pageDesc }}&lt;/small&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+        &lt;div ui-view animate-panel&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <h3>
+                            Page styles and script
+                        </h3>
+                        <p>
+                        <code>head</code> contains lins for all CSS files of theme and for all plugins. In your app you can choose only that file that you will use.
+                        All css files are in special comment <code>&lt;!-- bower:css --&gt;</code> this comment is required for task that will merge all files to one in build process.
+
+
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+&lt;!-- build:css(.) styles/vendor.css --&gt;
+&lt;!-- bower:css --&gt;
+&lt;link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.min.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/animate.css/animate.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/summernote/dist/summernote.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/ng-grid/ng-grid.min.css" /&gt;
+&lt;link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" /&gt;
+&lt;!-- endbower --&gt;
+&lt;!-- endbuild --&gt;
+
+&lt;!-- build:css({.tmp,app}) styles/style.css --&gt;
+&lt;link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" /&gt;
+&lt;link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" /&gt;
+&lt;link rel="stylesheet" href="styles/style.css"&gt;
+&lt;!-- endbuild --&gt;
+
+</pre>
+
+                        <p>
+                            The same with scripts. All scripts in build process are combined into a single file
+
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+&lt;!-- build:js(.) scripts/vendor.js --&gt;
+&lt;script src="bower_components/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/slimScroll/jquery.slimscroll.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular/angular.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-animate/angular-animate.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/bootstrap/dist/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/jquery-flot/jquery.flot.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/jquery-flot/jquery.flot.resize.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/jquery-flot/jquery.flot.pie.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/flot.curvedlines/curvedLines.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/jquery.flot.spline/index.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-flot/angular-flot.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/metisMenu/dist/metisMenu.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/sweetalert/lib/sweet-alert.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/iCheck/icheck.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/sparkline/index.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/chartjs/Chart.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angles/angles.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/peity/jquery.peity.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-peity/angular-peity.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/sweetalert/lib/sweet-alert.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-notify/dist/angular-notify.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/chartjs/Chart.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angles/angles.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-ui-utils/ui-utils.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-ui-map/ui-map.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/moment/min/moment.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/fullcalendar/dist/fullcalendar.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-ui-calendar/src/calendar.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/summernote/dist/summernote.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-summernote/dist/angular-summernote.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/ng-grid/ng-grid-2.0.14.min.js"&gt;&lt;/script&gt;
+&lt;script src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;
+
+&lt;!-- build:js({.tmp,app}) scripts/scripts.js --&gt;
+&lt;script src="scripts/homer.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/config.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/directives.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/filters.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/factories/sweet-alert.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/alerts.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/modal.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/charts_flot.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/chartjs.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/inline.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/clock.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/timeline.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/googleMap.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/calendar.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/editor.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/forms.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/grid.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/controllers/list.js"&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;
+
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Main app.js file</h3>
+                        <p>
+                            App.js files include all external module for angular. Below is a preview of app.js in full version.
+                        </p>
+<pre class="prettyprint linenums">
+
+(function () {
+    angular.module('homer', [
+        'ui.router',                // Angular flexible routing
+        'ui.bootstrap',             // AngularJS native directives for Bootstrap
+        'angular-flot',             // Flot chart
+        'angles',                   // Chart.js
+        'angular-peity',            // Peity (small) charts
+        'cgNotify',                 // Angular notify
+        'angles',                   // Angular ChartJS
+        'ngAnimate',                // Angular animations
+        'ui.map',                   // Ui Map for Google maps
+        'ui.calendar',              // UI Calendar
+        'summernote',               // Summernote plugin
+        'ngGrid',                   // Angular ng Grid
+        'ui.tree',                   // Angular ui Tree
+        'bm.bsTour',                // Angular bootstrap tour
+        'datatables',               // Angular datatables plugin
+        'xeditable',                // Angular-xeditable
+        'ui.select',                // AngularJS ui-select
+        'ui.sortable'               // AngularJS ui-sortable
+    ])
+})();
+
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Route config</h3>
+                        <p>
+                            To manage all route we use great plugin Ui.Router. AngularUI Router is a routing framework for AngularJS, which allows you to organize the parts of your interface into a state machine.
+
+                            Below you can see example of configuration ui-view. Configuration routing are in config.js file
+                        </p>
+<pre class="prettyprint linenums">
+function configState($stateProvider, $urlRouterProvider, $compileProvider) {
+
+    // Optimize load start with remove binding information inside the DOM element
+    $compileProvider.debugInfoEnabled(true);
+
+    // Set default state
+    $urlRouterProvider.otherwise("/dashboard");
+    $stateProvider
+
+        // Dashboard - Main page
+        .state('dashboard', {
+            url: "/dashboard",
+            templateUrl: "views/dashboard.html",
+            data: {
+                pageTitle: 'Dashboard',
+            }
+        })
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <h3>Homer Seed Project</h3>
+                        <p>
+                            It is an application skeleton for a typical AngularJS web app with HOMER style. You can use it to quickly bootstrap your angular webapp projects.
+                            It has all necessary resources/files to help you started new project. As your project will grow you will need to add new resources.
+                            Look at the full version to select the elements and resources you want to use.
+                        </p>
+                        <p>
+                            File structure for Seed Project are same as full version but without all additional plugins:
+                        </p>
+                        <div><pre class="prettyprint linenums">
+<code>Homer/
+    ├── <strong>app/</strong>
+    ├── <strong>bower_components/</strong>
+    ├── <strong>dist/</strong>
+    ├── <strong>node_modules/</strong>
+    ├── bower.json
+    ├── Gruntfile.js
+    ├── package.json
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body text-center">
+
+                        <h3>Contact</h3>
+                        <p>
+                            If you have any question or find some issue feel free to contact with us on  <br/><br/><a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="assets/jquery/dist/jquery.min.js"></script>
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/google-code-prettify/prettify.js"></script>
+
+<script>
+    $(function () {
+        window.prettyPrint && prettyPrint();
+    })
+</script>
+
+</html>

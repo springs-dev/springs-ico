@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOMER Documentation - HTML/jQuery</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+<div class="color-line">
+</div>
+<div id="logo" class="light-version">
+        <span>
+            HOMER Documentation - HTML/jQuery
+        </span>
+</div>
+
+<div id="wrapper">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h3><strong>HOMER</strong> <br/> HTML/jQuery Responsive WebApp</h3>
+                                <p>Thank you for purchasing HOMER admin theme. If you have any questions about the template, please feel free to contact us via email: support@webapplayers.com. </p>
+                                <p>
+                                        <strong>Documentation created:</strong> 26/02/2015<br>
+                                        <strong>Latest update:</strong> 06/07/2015<br>
+                                        <strong>By:</strong> WebAppLayers Team<br>
+                                </p>
+                                <p >
+                                    This documentation is focused on HOMER HTML/jQuery version. It assumes a minimum knowledge of html/css/js language. It describe mainly files and structure in project.
+                                    <br/><br/>Please note that this documentation is dedicated to the main element of the template. With each version, we will try to develop it.
+                                    <br/><br/>But if you have any questions going beyond what is described here don't hesitate to write to us on support email. We would love to help.
+                                </p>
+                                <a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                            </div>
+                            <div class="col-lg-7">
+                                <img class="img-responsive m-t-lg" src="images/preview.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>First run</h3>
+                        <h4>File system or server</h4>
+                        <p>
+                            To run HTML/jQuery version of HOMER you can run index.html file in your browser or run a local server under Homer_Full_Version_jQuery folder.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+                            <h3>Structure</h3>
+                            <h4>Folders and files</h4>
+
+                            <p>File pack consists Homer_Full_Version_jQuery, Homer_Full_Version_AngularJS, Homer_Seed_Project_AngularJS and Documentation folder. In Homer_Full_Version_jQuery app folder, structure presents as below.</p>
+
+                            <div><pre class="prettyprint linenums">
+<code>Homer_Full_Version_jQuery/
+    ├── <strong>fonts/</strong>
+    ├── <strong>icons/</strong>
+    ├── <strong>images/</strong>
+    ├── <strong>scripts/</strong>
+    ├── <strong>styles/</strong>
+    ├── <strong>vendor/</strong>
+    ├── alert.html
+    ├── analytics.html
+    ├── buttons.html
+    ├── buttons.html
+    ├── calendar.html
+    ├── chartjs.html
+    ├── components.html
+    ├── contacts.html
+    ├── draggable_panels.html
+    ├── error_one.html
+    ├── error_two.html
+    ├── flot.html
+    ├── forms_elements.html
+    ├── grid_system.html
+    ├── gallery.html
+    ├── icons.html
+    ├── index.html
+    ├── inline.html
+    ├── landing_page.html
+    ├── lock.html
+    ├── login.html
+    ├── mailbox.html
+    ├── modals.html
+    ├── nestable_list.html
+    ├── panels.html
+    ├── profile.html
+    ├── projects.html
+    ├── project_detail.html
+    ├── register.html
+    ├── social_board.html
+    ├── tables_design.html
+    ├── text_editor.html
+    ├── timeline.html
+    ├── transition_five.html
+    ├── transition_four.html
+    ├── transition_one.html
+    ├── transition_three.html
+    ├── transition_two.html
+    ├── typography.html
+    ├── widgets.html
+</code></pre>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure</h3>
+
+                            <p>Main index layout are created with few main elements:</p>
+                            <ol>
+                                <li><code>header</code> top header.</li>
+                                <li><code>menu</code> left sidebar navigation.</li>
+                                <li><code>wrapper</code> main container for page elements.</li>
+                                <li><code>right sidebar</code> additional right sidebar.</li>
+                                <li><code>footer</code> bottom footer.</li>
+                            </ol>
+
+                            <a href="images/layout_html.png" target="_blank"><img alt="page structure" src="images/layout_html.png" class="img-responsive"></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Layout structure - file</h3>
+                        <p>
+                            This is example of basic (minimal version) layout structure.
+                        </p>
+<pre class="prettyprint linenums">
+
+&lt;body&gt;
+
+&lt;!-- Header --&gt;
+&lt;div id="header"&gt;
+    &lt;!-- header elements --&gt;
+&lt;/div&gt;
+
+&lt;!-- Navigation --&gt;
+&lt;aside id="menu"&gt;
+    &lt;!-- menu elements --&gt;
+&lt;/aside&gt;
+
+&lt;!-- Main Wrapper --&gt;
+&lt;div id="wrapper"&gt;
+    &lt;!-- main page elements --&gt;
+
+    &lt;!-- Right Sidebar --&gt;
+    &lt;div id="right-sidear"&gt;
+        &lt;!-- right sidebar elements --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Main Wrapper --&gt;
+    &lt;footer class="footer"&gt;
+        &lt;!-- footer elements --&gt;
+    &lt;/footer&gt;
+
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+
+</pre>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed sidebar</h3>
+
+                        <p>Fixed sidebar is a (left menu) sidebar that is sticked on screen. </p>
+                        <p>To add fixed sidebar you need to add .fixed-sidebar class to body. </p>
+                        <pre class="prettyprint linenums">
+
+&lt;body class="fixed-sidebar"&gt;
+
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <h3>Option - fixed navbar</h3>
+                        <p>
+                            Fixed navbar is a top navbar that is sticked on screen.
+                        </p>
+                        <p>To add fixed sidebar you need to add .fixed-navbar class to body. </p>
+                         <pre class="prettyprint linenums">
+
+&lt;body class="fixed-navbar"&gt;
+
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <h3>
+                            Page styles and script
+                        </h3>
+                        <p>
+                        <code>head</code> contains lins for all CSS files of theme and for all plugins (vendor - used in view when specific plugin need it). In your app you can choose only that file that you will use.
+
+
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+&lt;head&gt;
+
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+
+    &lt;!-- Page title --&gt;
+    &lt;title&gt;HOMER | WebApp admin theme&lt;/title&gt;
+
+    &lt;!-- Place favicon.ico and apple-touch-icon.png in the root directory --&gt;
+    &lt;!--&lt;link rel="shortcut icon" type="image/ico" href="favicon.ico" /&gt;--&gt;
+
+    &lt;!-- Vendor styles --&gt;
+    &lt;link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css" /&gt;
+    &lt;link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" /&gt;
+    &lt;link rel="stylesheet" href="vendor/animate.css/animate.css" /&gt;
+    &lt;link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" /&gt;
+
+    &lt;!-- App styles --&gt;
+    &lt;link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" /&gt;
+    &lt;link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" /&gt;
+    &lt;link rel="stylesheet" href="styles/static_custom.css"&gt;
+    &lt;link rel="stylesheet" href="styles/style.css"&gt;
+
+&lt;/head&gt;
+
+</pre>
+
+                        <p>
+                            The same with scripts. All scripts are located in bottom of file. for example:
+
+                        </p>
+
+                        <pre class="prettyprint linenums">
+
+&lt;!-- Vendor scripts --&gt;
+&lt;script src="vendor/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/jquery-ui/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/slimScroll/jquery.slimscroll.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/bootstrap/dist/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/metisMenu/dist/metisMenu.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/iCheck/icheck.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/peity/jquery.peity.min.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/sparkline/index.js"&gt;&lt;/script&gt;
+&lt;script src="vendor/nestable/jquery.nestable.js"&gt;&lt;/script&gt;
+
+&lt;!-- App scripts --&gt;
+&lt;script src="scripts/homer.js"&gt;&lt;/script&gt;
+
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body">
+
+                        <h3>Special scripts</h3>
+                        <p>
+                            If the view used some plugin this plugin settings are added to the bottom of the page in the script element. For example nestable_list.html.
+                        </p>
+                        <div><pre class="prettyprint linenums">
+ $(function () {
+
+        var updateOutput = function (e) {
+            var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+            if (window.JSON) {
+                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            } else {
+                output.val('JSON browser support required for this demo.');
+            }
+        };
+        // activate Nestable for list 1
+        $('#nestable').nestable({
+            group: 1
+        }).on('change', updateOutput);
+
+        // activate Nestable for list 2
+        $('#nestable2').nestable({
+            group: 1
+        }).on('change', updateOutput);
+
+        // output initial serialised data
+        updateOutput($('#nestable').data('output', $('#nestable-output')));
+        updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+
+        $('#nestable-menu').on('click', function (e) {
+            var target = $(e.target),
+                    action = target.data('action');
+            if (action === 'expand-all') {
+                $('.dd').nestable('expandAll');
+            }
+            if (action === 'collapse-all') {
+                $('.dd').nestable('collapseAll');
+            }
+        });
+
+    });
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hpanel">
+                    <div class="panel-body text-center">
+
+                        <h3>Contact</h3>
+                        <p>
+                            If you have any question or find some issue feel free to contact with us on  <br/><br/><a href="mailto:support@webapplayers.com" class="btn btn-success">support@webapplayers.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="assets/jquery/dist/jquery.min.js"></script>
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/google-code-prettify/prettify.js"></script>
+
+<script>
+    $(function () {
+        window.prettyPrint && prettyPrint();
+    })
+</script>
+
+</html>

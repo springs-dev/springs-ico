@@ -84,10 +84,11 @@ function populateGlobalData() {
   });
 }
 
-window.buyTokens = function() {
+window.buyTokens = function(event) {
+  event.preventDefault();
   let tokensToBuy = $("#buy").val();
   let price = tokensToBuy * tokenPrice;
-  $("#buy-msg").html('Purchase has been submitted. Please wait until network will handle the transaction.');
+  $("#buy-msg").html('<p>Purchase has been submitted. Please wait until network will handle the transaction.</p>');
   SpringsContract.deployed().then(function(contractInstance) {
     contractInstance.buy({value: web3.toWei(price, 'ether'), from: web3.eth.accounts[0]}).then(function(v) {
       $("#buy-msg").html("");
@@ -96,11 +97,12 @@ window.buyTokens = function() {
   });
 }
 
-window.invest = function() {
+window.invest = function(event) {
+  event.preventDefault();
   //TODO юзеры должны выбирать field из селектбокса
   let field = 0;
   let tokens = $("#invest-tokens").val();
-  $("#msg").html('Invesment has been submitted. Please wait until network will handle the transaction.')
+  $("#msg").html('<p>Invesment has been submitted. Please wait until network will handle the transaction.</p>')
   $("#invest-tokens").val('');
 
   SpringsContract.deployed().then(function(contractInstance) {
