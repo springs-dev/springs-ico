@@ -7,6 +7,11 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'app.js'
   },
+  devServer: {
+    historyApiFallback: {
+      index: "./app/index_old.html"
+    }
+  },
   plugins: [
     // Copy our app's index.html to the build folder.
     new CopyWebpackPlugin([

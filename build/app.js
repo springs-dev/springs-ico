@@ -28149,10 +28149,11 @@ function populateGlobalData() {
   });
 }
 
-window.buyTokens = function() {
+window.buyTokens = function(event) {
+  event.preventDefault();
   let tokensToBuy = $("#buy").val();
   let price = tokensToBuy * tokenPrice;
-  $("#buy-msg").html('Purchase has been submitted. Please wait until network will handle the transaction.');
+  $("#buy-msg").html('<p>Purchase has been submitted. Please wait until network will handle the transaction.</p>');
   SpringsContract.deployed().then(function(contractInstance) {
     contractInstance.buy({value: web3.toWei(price, 'ether'), from: web3.eth.accounts[0]}).then(function(v) {
       $("#buy-msg").html("");
@@ -28161,11 +28162,12 @@ window.buyTokens = function() {
   });
 }
 
-window.invest = function() {
+window.invest = function(event) {
+  event.preventDefault();
   //TODO юзеры должны выбирать field из селектбокса
   let field = 0;
   let tokens = $("#invest-tokens").val();
-  $("#msg").html('Invesment has been submitted. Please wait until network will handle the transaction.')
+  $("#msg").html('<p>Invesment has been submitted. Please wait until network will handle the transaction.</p>')
   $("#invest-tokens").val('');
 
   SpringsContract.deployed().then(function(contractInstance) {
@@ -31375,7 +31377,7 @@ exports = module.exports = __webpack_require__(99)();
 
 
 // module
-exports.push([module.i, "body {\r\n  margin-left: 25%;\r\n  margin-right: 25%;\r\n  margin-top: 10%;\r\n  font-family: \"Open Sans\", sans-serif;\r\n}\r\n\r\nlabel {\r\n  display: inline-block;\r\n  width: 100px;\r\n}\r\n\r\ninput {\r\n  width: 500px;\r\n  padding: 5px;\r\n  font-size: 16px;\r\n}\r\n\r\nbutton {\r\n  font-size: 16px;\r\n  padding: 5px;\r\n}\r\n\r\nh1, h2 {\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  margin-top: 0px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nh2 {\r\n  color: #AAA;\r\n  font-size: 32px;\r\n}\r\n\r\nh3 {\r\n  font-weight: normal;\r\n  color: #AAA;\r\n  font-size: 24px;\r\n}\r\n\r\n.black {\r\n  color: black;\r\n}\r\n\r\n#balance {\r\n  color: black;\r\n}\r\n\r\n.hint {\r\n  color: #666;\r\n}\r\n", ""]);
+exports.push([module.i, "/*body {*/\r\n  /*font-family: \"Open Sans\", sans-serif;*/\r\n/*}*/\r\n\r\n/*label {*/\r\n  /*display: inline-block;*/\r\n  /*width: 100px;*/\r\n/*}*/\r\n\r\n/*input {*/\r\n  /*width: 500px;*/\r\n  /*padding: 5px;*/\r\n  /*font-size: 16px;*/\r\n/*}*/\r\n\r\n/*button {*/\r\n  /*font-size: 16px;*/\r\n  /*padding: 5px;*/\r\n/*}*/\r\n\r\n/*h1, h2 {*/\r\n  /*display: inline-block;*/\r\n  /*vertical-align: middle;*/\r\n  /*margin-top: 0px;*/\r\n  /*margin-bottom: 10px;*/\r\n/*}*/\r\n\r\n/*h2 {*/\r\n  /*color: #AAA;*/\r\n  /*font-size: 32px;*/\r\n/*}*/\r\n\r\n/*h3 {*/\r\n  /*font-weight: normal;*/\r\n  /*color: #AAA;*/\r\n  /*font-size: 24px;*/\r\n/*}*/\r\n\r\n/*.black {*/\r\n  /*color: black;*/\r\n/*}*/\r\n\r\n/*#balance {*/\r\n  /*color: black;*/\r\n/*}*/\r\n\r\n/*.hint {*/\r\n  /*color: #666;*/\r\n/*}*/\r\n\r\n\r\n/*!* New *!*/\r\n/*.page-header {*/\r\n\r\n/*}*/\r\n\r\n/*.page-container {*/\r\n  /*margin-top: 50px;*/\r\n  /*margin-bottom: 50px;*/\r\n/*}*/\r\n\r\n/*.page-container > .row {*/\r\n  /*margin-bottom: 3em;*/\r\n/*}*/\r\n\r\n/*.page-wrapper {*/\r\n  /*background-color: #f1f3f6;*/\r\n/*}*/\r\n\r\n/*.page-footer {*/\r\n  /*padding: 10px 18px;*/\r\n  /*background: #ffffff;*/\r\n  /*border-top: 1px solid #e4e5e7;*/\r\n/*}*/\r\n\r\n/*.hpanel .table {*/\r\n  /*margin-bottom: 0;*/\r\n/*}*/\r\n\r\n/*.numbers-counter {*/\r\n  /*margin-bottom: 200px;*/\r\n/*}*/\r\n.purchase-section {\r\n  padding-top: 50px;\r\n  margin-top: 100px;\r\n}\r\n.purchase-section > * {\r\n  padding: 100px 0;\r\n}", ""]);
 
 // exports
 

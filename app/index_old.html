@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Springs ICO</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <!--<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="app/theme/styles/style.css">
+  <!--<link rel="stylesheet" href="app/theme/styles/static_custom.css">-->
+  <meta name="description" content="One Page Layout">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body class="page-wrapper">
+<div class="container page-container">
+  <div class="row">
+    <h1 class="page-header">Springs Rinkeby ICO </h1>
+  </div>
+  <!-- <div class="col-sm-12 margin-top-3"> -->
+  <div class="row">
+    <div class="col-12">
+      <div class="hpanel">
+        <div class="panel-heading">
+          <h4>Global Statistics</h4>
+          <!-- <h2>Global Statistics</h2> -->
+        </div>
+        <!-- <div class=""> -->
+        <div class="table-responsive panel-body">
+          <table class="table table-bordered">
+            <tr>
+              <td>Tokens For Sale</td>
+              <td id="tokens-total"></td>
+            </tr>
+            <tr>
+              <td>Tokens Sold</td>
+              <td id="tokens-sold"></td>
+            </tr>
+            <tr>
+              <td>Share Sold</td>
+              <td id="share"></td>
+            </tr>
+          </table>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-12">
+      <div class="hpanel">
+        <div class="panel-heading">
+          <!-- <h2>Purchase Tokens (<span id="token-cost"></span> Ether / token)</h2> -->
+          <h4>Purchase Tokens (<span id="token-cost"></span> Ether / token)</h4>
+        </div>
+        <div class="panel-body">
+          <div id="buy-msg" class="text-warning"></div>
+          <div class="input-group">
+            <!-- <input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy"/>&nbsp; -->
+            <input type="text" id="buy" class="form-control" placeholder="Number of tokens to buy"/>
+            <!-- <a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a> -->
+            <span class="input-group-btn">
+              <a href="#" onclick="buyTokens(event)" class="btn btn-primary">Buy</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <div class="col-12">
+      <div class="hpanel">
+        <div class="panel-heading">
+          <h4>Investor Lookup</h4>
+        </div>
+        <div class="panel-body">
+          <div class="input-group m-b-md">
+            <!--<input type="text" id="address-input" class="col-sm-8" placeholder="Enter your wallet address" />&nbsp;-->
+            <input type="text" id="address-input" class="form-control" placeholder="Enter your wallet address" />
+            <!--<a href="#" onclick="investorInfo()" class="btn btn-primary">Check Investor Data</a>-->
+            <span class="input-group-btn">
+                <a href="#" onclick="investorInfo()" class="btn btn-primary">Check Investor Data</a>
+                </span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead></thead>
+              <tbody>
+              <tr>
+                <td>Investor Wallet Address</td>
+                <td id="investor-address"></td>
+              </tr>
+              <tr>
+                <td>Tokens Bought</td>
+                <td id="investor-bought"></td>
+              </tr>
+              <tr>
+                <td>Tokens Invested</td>
+                <td id="investor-invested"></td>
+              </tr>
+              <tr>
+                <td>Total Share</td>
+                <td id="investor-share"></td>
+              </tr>
+              <tr>
+                <td>Share By Industry</td>
+                <td id="investor-industry"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+  <!-- <div class="col-sm-7 margin-top-3"> -->
+  <div class="row">
+    <div class="col-12">
+      <div class="hpanel">
+        <div class="panel-heading">
+          <h4>Fields available for investment</h4>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>Field</th>
+                <th>Tokens</th>
+                <th>Field share</th>
+              </tr>
+              </thead>
+              <tbody id="field-rows">
+              <tr>
+                <td colspan="3" class="text-center">
+                  No data
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <!--<div class="container-fluid">-->
+      <div class="hpanel">
+        <div class="panel-heading">
+          <h4>Invest in:</h4>
+        </div>
+        <div class="panel-body">
+          <div id="msg" class="text-warning"></div>
+          <select id="field" class="form-control col-6 m-b-md">
+            <option value="Please select..." disabled>Please select...</option>
+          </select>
+          <input type="text" id="invest-tokens" class="form-control col-6 m-b-md" placeholder="Total no. of tokens to invest"/>
+          <a href="#" onclick="invest(event)" class="btn btn-primary">Invest</a>
+        </div>
+      </div>
+      <!--</div>-->
+    </div>
+  </div>
+  <!-- </div> -->
+</div>
+<div class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="https://springsapps.com">springsapps.com</a>
+        <a href="https://www.facebook.com/springsdev">Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+
+<script src="app.js"></script>
+
+</body>
+</html>

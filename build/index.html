@@ -1,111 +1,508 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Springs ICO</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-  <style>
-    .margin-top-3 {
-      margin-top: 3em;
-    }
-  </style>
-</head>
-<body class="container">
-  <h1>Springs Rinkeby ICO </h1>
-  <div class="col-sm-7 margin-top-3">
-    <h2>Fields available for investment</h2>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Tokens</th>
-            <th>Field share</th>
-          </tr>
-        </thead>
-        <tbody id="field-rows">
-        </tbody>
-      </table>
-    </div>
-    <div class="container-fluid">
-      <h2>Invest in:</h2>
-      <div id="msg"></div>
-      <select id="field">
+  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
+  <!--<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
 
-      </select>
-      <br>
-      <br>
-      <input type="text" id="invest-tokens" placeholder="Total no. of tokens to invest"/>
-      <br>
-      <br>
-      <a href="#" onclick="invest()" class="btn btn-primary">Invest</a>
+  <!--<link rel="stylesheet" href="app/theme/styles/style.css">-->
+  <!--<link rel="stylesheet" href="app/theme/styles/static_custom.css">-->
+  <meta name="description" content="One Page Layout">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700">
+  <link rel="stylesheet" href="app/theme/styles/font-awesome.css">
+  <link rel="stylesheet" href="app/theme/styles/owl.carousel.css">
+  <link rel="stylesheet" href="app/theme/styles/owl.theme.css">
+  <link rel="stylesheet" href="app/theme/styles/slit-slider-style.css">
+  <link rel="stylesheet" href="app/theme/styles/slit-slider-custom.css">
+  <link rel="stylesheet" href="app/theme/styles/idangerous.swiper.css">
+  <link rel="stylesheet" href="app/theme/styles/yamm.css">
+  <link rel="stylesheet" href="app/theme/styles/animate.css">
+  <link rel="stylesheet" href="app/theme/styles/prettyPhoto.css">
+  <link rel="stylesheet" href="app/theme/styles/bootstrap-slider.css">
+  <link rel="stylesheet" href="app/theme/styles/device-mockups2.css">
+  <link rel="stylesheet" href="app/theme/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="app/theme/styles/main.css">
+  <link rel="stylesheet" href="app/theme/styles/main-responsive.css">
+  <link id="primary_color_scheme" rel="stylesheet" href="app/theme/styles/theme_meadow.css">
+  <script src="app/theme/scripts/vendor/modernizr.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="app/theme/styles/styleNoJs.css">
+  </noscript>
+
+</head>
+<body class="page-wrapper">
+<div id="load"></div><!--[if lt IE 9]>
+<p class="browsehappy">You are using an strong outdated browser. <br>Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="page">
+  <nav id="main-navigation" role="navigation" class="navbar navbar-fixed-top navbar-standard">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle"><i class="fa fa-align-justify fa-lg"></i></button>
+        <a href="#" class="navbar-brand"><img src="app/theme/img/logo-white.png" alt="" class="logo-white">
+          <img src="app/theme/img/logo-dark.png" alt="" class="logo-dark">
+        </a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <button type="button" class="navbar-toggle"><i class="fa fa-close fa-lg"></i></button>
+        <ul id="one-page-menu" role="menu" class="nav navbar-nav navbar-left">
+          <li>
+            <a href="#home" title="Home" data-ref="home">Home</a>
+          </li>
+          <li>
+            <a href="#about" title="About" data-ref="about">About us</a>
+          </li>
+          <li>
+            <a href="#purchase" title="Purchase" data-ref="purchase">Purchase</a>
+          </li>
+          <li>
+            <a href="#invest" title="Invest" data-ref="invest">Invest</a>
+          </li>
+          <li>
+            <a href="#markup" title="Markup" data-ref="markup">Markup</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- Start Home Section-->
+  <div id="home">
+    <section class="demo-1 home-section">
+      <!--     Codrops top bar-->
+      <div id="slider" class="sl-slider-wrapper">
+        <div class="sl-slider">
+          <!-- start slide-->
+          <div data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2" class="sl-slide">
+            <div style="background-image: url('app/theme/img/intro-home9.jpg');" class="sl-slide-inner">
+              <div class="slide-container">
+                <div class="slide-content text-center"><img src="app/theme/img/themes/meadow/logo-intro.png" alt="Ottavio" class="deco">
+                  <h2 class="main-title">Clean, flat & polished&nbsp;<span class="text-primary">Design</span></h2>
+                  <blockquote>
+                    <p>Using best web solutions with html5/css3</p><a class="btn btn-light btn-bordered btn-lg">Our Works</a><a href="http://themeforest.net/item/ottavio-multipurpose-html5-bootstrap-template/9562624?ref=kleis" target="_blank" class="btn btn-primary btn-lg">Buy the theme</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end slide-->
+          <!-- start slide-->
+          <div data-orientation="horizontal" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5" class="sl-slide">
+            <div style="background-image: url('app/theme/img/intro-home1.jpg');" class="sl-slide-inner">
+              <div class="slide-container">
+                <div class="slide-content text-center">
+                  <h2 class="main-title">Multi-purpose html&nbsp;<span class="text-primary">Template</span></h2>
+                  <blockquote>
+                    <p>Unique and modern design</p><a class="btn btn-light btn-bordered btn-lg">Our Works</a><a href="http://themeforest.net/item/ottavio-multipurpose-html5-bootstrap-template/9562624?ref=kleis" target="_blank" class="btn btn-primary btn-lg">Buy the theme</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end slide-->
+          <!-- start slide-->
+          <div data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1" class="sl-slide">
+            <div style="background-image: url('app/theme/img/intro-home7.jpg');" class="sl-slide-inner">
+              <div class="slide-container">
+                <div class="slide-content text-center"><img src="app/theme/img/themes/meadow/logo-intro.png" alt="Ottavio" class="deco">
+                  <h2 class="main-title">Fully responsive &&nbsp;<span class="text-primary">Retina ready</span></h2>
+                  <blockquote>
+                    <p>Based on twitter bootstrap</p><a class="btn btn-light btn-bordered btn-lg">Our Works</a><a href="http://themeforest.net/item/ottavio-multipurpose-html5-bootstrap-template/9562624?ref=kleis" target="_blank" class="btn btn-primary btn-lg">Buy the theme</a>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end slide-->
+        </div>
+        <!--       /sl-slider-->
+        <nav id="nav-arrows" class="nav-arrows"><span class="nav-arrow-prev">Previous</span><span class="nav-arrow-next">Next</span></nav>
+        <nav id="nav-dots" class="nav-dots"><span class="nav-dot-current"></span><span></span><span></span></nav>
+      </div>
+      <!--     /slider-wrapper-->
+    </section>
+    <section class="sep-top-2x sep-bottom-3x">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 text-right">
+            <div class="sep-top-md sep-bottom-sm">
+              <div class="bordered-right section-title">
+                <h2 class="upper">Want to say Hey or find<span class="label-colored">out more?</span></h2>
+              </div>
+              <p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.</p>
+              <div class="sep-top-xs"><a href="http://themeforest.net/item/ottavio-multipurpose-html5-bootstrap-template/9562624?ref=kleis" target="_blank" data-wow-delay=".5s" class="btn btn-primary btn-lg wow bounceInLeft">Learn about us</a></div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div data-device="macbook" data-orientation="landscape" data-color="black" class="device-mockup">
+              <div class="device">
+                <div class="screen"><img src="app/theme/img/portfolio/wr4c5.jpg" alt="" width="577" height="433" class="img-responsive"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 sep-top-2x icon-gradient">
+            <div class="icon-box icon-horizontal icon-lg">
+              <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp"><i class="fa fa-lightbulb-o"></i></div>
+              <div class="icon-box-content">
+                <h5 class="upper">Strategy Solutions</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 sep-top-2x icon-gradient">
+            <div class="icon-box icon-horizontal icon-lg">
+              <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp"><i class="fa fa-gamepad"></i></div>
+              <div class="icon-box-content">
+                <h5 class="upper">Digital Design</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 sep-top-2x icon-gradient">
+            <div class="icon-box icon-horizontal icon-lg">
+              <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp"><i class="fa fa-code-fork"></i></div>
+              <div class="icon-box-content">
+                <h5 class="upper">Web Development</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 sep-top-2x icon-gradient">
+            <div class="icon-box icon-horizontal icon-lg">
+              <div data-wow-delay=".5s" class="icon-content img-circle wow bounceInUp"><i class="fa fa-android"></i></div>
+              <div class="icon-box-content">
+                <h5 class="upper">App Development</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="col-sm-offset-1 col-sm-4 margin-top-3">
-    <div class="row">
-      <h2>Global Statistics</h2>
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <tr>
-            <td>Tokens For Sale</td>
-            <td id="tokens-total"></td>
-          </tr>
-          <tr>
-            <td>Tokens Sold</td>
-            <td id="tokens-sold"></td>
-          </tr>
-          <tr>
-            <td>Share Sold</td>
-            <td id="share"></td>
-          </tr>
-        </table>
+  <!-- End Home Section-->
+
+  <!-- Start About section-->
+  <div id="about">
+    <section style="background-image: url('app/theme/img/parallax4.jpg');" class="parallax">
+      <div class="section-shade sep-top-3x sep-bottom-2x">
+        <div class="container">
+          <div data-wow-delay="1s" class="section-title text-center wow bounceInDown">
+            <h3 class="upper light small-space">Creativity, innovation and knowledge</h3>
+            <p class="lead light lighter">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu. Cum sociis natoque penatibus et magnis.</p>
+          </div>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div id="charts-wrapper" class="row">
+                <!-- Start Chart item-->
+                <div data-wow-delay="1s" class="col-md-4 text-center sep-top-lg light wow fadeInUp">
+                  <div data-percent='72' class="chart"><span><b data-from="0" data-to='72' class="counter">0</b><em>%</em></span></div>
+                  <p class="lead x2">HTML &amp; CSS</p>
+                  <p class="light lighter">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu.</p>
+                </div>
+                <!-- End Chart item-->
+                <!-- Start Chart item-->
+                <div data-wow-delay="1s" class="col-md-4 text-center sep-top-lg light wow fadeInUp">
+                  <div data-percent='56' class="chart"><span><b data-from="0" data-to='56' class="counter">0</b><em>%</em></span></div>
+                  <p class="lead x2">Javascript</p>
+                  <p class="light lighter">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu.</p>
+                </div>
+                <!-- End Chart item-->
+                <!-- Start Chart item-->
+                <div data-wow-delay="1s" class="col-md-4 text-center sep-top-lg light wow fadeInUp">
+                  <div data-percent='84' class="chart"><span><b data-from="0" data-to='84' class="counter">0</b><em>%</em></span></div>
+                  <p class="lead x2">Php &amp; MySql</p>
+                  <p class="light lighter">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu.</p>
+                </div>
+                <!-- End Chart item-->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row margin-top-3">
-      <h2>Purchase Tokens (<span id="token-cost"></span> Ether / token)</h2>
-      <div class="col-sm-12">
-        <div id="buy-msg"></div>
-        <input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy"/>&nbsp;
-        <a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
-      </div>
-    </div>
-    <div class="row margin-top-3">
-      <h2>Investor Lookup</h2>
-      <div class="col-sm-12">
-        <input type="text" id="address-input", class="col-sm-8" placeholder="Enter your wallet address" />&nbsp;
-        <a href="#" onclick="investorInfo()" class="btn btn-primary">Check Investor Data</a>
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <tr>
-              <td>Investor Wallet Address</td>
-              <td id="investor-address"></td>
-            </tr>
-            <tr>
-              <td>Tokens Bought</td>
-              <td id="investor-bought"></td>
-            </tr>
-            <tr>
-              <td>Tokens Invested</td>
-              <td id="investor-invested"></td>
-            </tr>
-            <tr>
-              <td>Total Share</td>
-              <td id="investor-share"></td>
-            </tr>
-            <tr>
-              <td>Share By Industry</td>
-              <td id="investor-industry"></td>
-            </tr>
-          </table>
+    </section>
+
+    <div class="bg-primary numbers-counter">
+      <div class="container">
+        <div id="timer-wrapper" class="row">
+          <div class="col-md-4 text-center sep-top-md sep-bottom-md">
+            <span data-from="0" data-to="987" data-speed="2500" data-refresh-interval="50" class="timer light">0</span>
+            <p class="lead x2 light upper timer-title">Coffee Cups</p>
+            <p class="light lighter">orci magna rhoncus neque</p>
+          </div>
+          <div class="col-md-4 text-center sep-top-md sep-bottom-md">
+            <span data-from="0" data-to="40" data-speed="2500" data-refresh-interval="50" class="timer light">0</span>
+            <p class="lead x2 light upper timer-title">Broken Monitors</p>
+            <p class="light lighter">orci magna rhoncus neque</p>
+          </div>
+          <div class="col-md-4 text-center sep-top-md sep-bottom-md">
+            <span data-from="0" data-to="4326" data-speed="2500" data-refresh-interval="50" class="timer light">0</span>
+            <p class="lead x2 light upper timer-title">Photos Taken</p>
+            <p class="light lighter">orci magna rhoncus neque</p>
+          </div>
+          <!--<div class="col-md-3 text-center sep-top-md sep-bottom-md"><span data-from="0" data-to="375224" data-speed="2500" data-refresh-interval="50" class="timer light">0</span>-->
+            <!--<p class="lead x2 light upper timer-title">Mouse Clicks</p>-->
+            <!--<p class="light lighter">orci magna rhoncus neque</p>-->
+          <!--</div>-->
         </div>
       </div>
     </div>
-    <div>
-      <a href="https://springsapps.com">springsapps.com</a>
-      <a href="https://www.facebook.com/springsdev">Facebook</a>
-    </div>
   </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <!-- End About section-->
+
+  <!-- Start Purchase section-->
+  <div id="purchase">
+    <section class="purchase-section">
+      <div class="call-to-action bg-primary sep-top-md sep-bottom-md">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <h5 class="action-title upper light">HAVE AN IDEA? WE’RE HERE TO HELP YOU MANAGE YOUR WORK</h5>
+            </div>
+            <div class="col-md-3 text-right"><a href="contact-us.html" class="btn btn-light btn-bordered btn-lg">Contact us</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- End Purchase section-->
+
+  <!-- Start Invest section-->
+  <div id="invest">
+    <section class="sep-top-3x sep-bottom-3x">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="section-title">
+              <h2 class="bordered-left upper">Our<br>service</h2>
+              <p class="lead">A tutorial on how to create a fullscreen slideshow with a twist: the idea is to slice open the current slide when navigating to the next or previous one. Using jQuery and CSS animations we can create unique slide transitions for the content elements.</p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div data-wow-delay="1s" class="icon-box icon-lg sep-top-md icon-gradient wow bounceInRight">
+              <div class="icon-content img-circle"><i class="fa fa-random"></i></div>
+              <div class="icon-box-content">
+                <h5>Amazing Development</h5>
+                <p>Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more. Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more.</p>
+              </div>
+            </div>
+            <div data-wow-delay="1s" class="icon-box icon-lg sep-top-md icon-gradient wow bounceInRight">
+              <div class="icon-content img-circle"><i class="fa fa-lightbulb-o"></i></div>
+              <div class="icon-box-content">
+                <h5>Strategy Solutions</h5>
+                <p>Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more. Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more.</p>
+              </div>
+            </div>
+            <div data-wow-delay="1s" class="icon-box icon-lg sep-top-md icon-gradient wow bounceInRight">
+              <div class="icon-content img-circle"><i class="fa fa-gamepad"></i></div>
+              <div class="icon-box-content">
+                <h5>Digital Design</h5>
+                <p>Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more. Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more.</p>
+              </div>
+            </div>
+            <div data-wow-delay="1s" class="icon-box icon-lg sep-top-md icon-gradient wow bounceInRight">
+              <div class="icon-content img-circle"><i class="fa fa-stethoscope"></i></div>
+              <div class="icon-box-content">
+                <h5>24/24 Free Support</h5>
+                <p>Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more. Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more.</p>
+              </div>
+            </div>
+            <div data-wow-delay="1s" class="icon-box icon-lg sep-top-md icon-gradient wow bounceInRight">
+              <div class="icon-content img-circle"><i class="fa fa-comment"></i></div>
+              <div class="icon-box-content">
+                <h5>Consultation</h5>
+                <p>Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more. Perfect. By far the best theme on ThemeForest. You will never need another theme as it has everything and more.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- End Invest section-->
+
+  <!-- Start Markup section-->
+  <div id="markup">
+    <section style="background-image: url('app/theme/img/parallax3.jpg');" class="parallax">
+      <div class="section-shade sep-top-3x sep-bottom-3x">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+              <div class="section-title">
+                <h3 class="upper light small-space">Ready for an irreversible & ultimate experience?</h3>
+                <p class="lead light lighter">Pellentesque pellentesque pharetra lacus, eget aliquet mi mattis eu. Cum sociis natoque penatibus et magnis.</p>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 sep-top-md">
+                  <form role="form">
+                    <label for="nlEmail" class="sr-only">Email address</label>
+                    <div class="newsletter-form">
+                      <input id="nlEmail" type="email" placeholder="Email address" class="text-center form-control input-lg primary">
+                      <button type="submit" class="fa fa-paper-plane fa-2x light"></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sep-top-3x sep-bottom-3x">
+      <div class="container">
+        <!--<div class="row">-->
+        <!--<div class="col-md-8 col-md-offset-2">-->
+        <!--<div class="section-title text-center">-->
+        <!--<div class="icon-box icon-horizontal icon-md">-->
+        <!--<div class="icon-content img-circle"><i class="fa fa-pencil"></i></div>-->
+        <!--</div>-->
+        <!--<h2 class="upper">Contact Us</h2>-->
+        <!--<p class="lead">Do you have any idea in mind? Contact us, we will give you the answer you expect.</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+          <div class="col-md-6 sep-top-lg">
+            <!--Start icon box-->
+            <div class="icon-box icon-xs sep-bottom-xs icon-gradient">
+              <div data-wow-delay=".5s" class="icon-content img-circle wow flipInX"><i class="fa fa-map-marker"></i></div>
+              <div class="icon-box-content">
+                <h6 class="upper info-title">Address</h6>
+                <p>Elizabeth St, Melbourne, Victoria 3000, Australia</p>
+              </div>
+            </div>
+            <!--End icon box-->
+            <!--Start icon box-->
+            <div class="icon-box icon-xs sep-bottom-xs icon-gradient">
+              <div data-wow-delay=".7s" class="icon-content img-circle wow flipInX"><i class="fa fa-phone"></i></div>
+              <div class="icon-box-content">
+                <h6 class="upper info-title">Phone / Fax</h6>
+                <p>(+39) 123-456-789 / (+39) 123-456-789</p>
+              </div>
+            </div>
+            <!--End icon box-->
+            <!--Start icon box-->
+            <div class="icon-box icon-xs sep-bottom-xs icon-gradient">
+              <div data-wow-delay=".9s" class="icon-content img-circle wow flipInX"><i class="fa fa-envelope"></i></div>
+              <div class="icon-box-content">
+                <h6 class="upper info-title">Email</h6>
+                <p>info@ottaviostudios.com / support@ottaviostudios.com</p>
+              </div>
+            </div>
+            <!--End icon box-->
+            <!--Start icon box-->
+            <div class="icon-box icon-xs sep-bottom-xs icon-gradient">
+              <div data-wow-delay="1.1s" class="icon-content img-circle wow flipInX"><i class="fa fa-clock-o"></i></div>
+              <div class="icon-box-content">
+                <h6 class="upper info-title">Office Hours</h6>
+                <p>Mon / Friday 09:00 - 13.00 / 14:00 - 18:00</p>
+              </div>
+            </div>
+            <!--End icon box-->
+          </div>
+          <!--<div class="col-md-6 sep-top-lg">-->
+          <!--<div class="contact-form">-->
+          <!--<div id="successMessage" style="display:none" class="alert alert-success text-center">-->
+          <!--<p><i class="fa fa-check-circle fa-2x"></i></p>-->
+          <!--<p>Thanks for sending your message! We'll get back to you shortly.</p>-->
+          <!--</div>-->
+          <!--<div id="failureMessage" style="display:none" class="alert alert-danger text-center">-->
+          <!--<p><i class="fa fa-times-circle fa-2x"></i></p>-->
+          <!--<p>There was a problem sending your message. Please, try again.</p>-->
+          <!--</div>-->
+          <!--<div id="incompleteMessage" style="display:none" class="alert alert-warning text-center">-->
+          <!--<p><i class="fa fa-exclamation-triangle fa-2x"></i></p>-->
+          <!--<p>Please complete all the fields in the form before sending.</p>-->
+          <!--</div>-->
+          <!--<form id="contactForm" action="php/contact.php" method="post" class="validate">-->
+          <!--<div class="form-group sep-top-xs">-->
+          <!--<label for="contactFormName" class="upper">Your Name</label>-->
+          <!--<input id="contactFormName" type="text" placeholder="Enter name" name="senderName" class="form-control input-lg required">-->
+          <!--</div>-->
+          <!--<div class="form-group sep-top-xs">-->
+          <!--<label for="contactFormPhone" class="upper">Your Phone</label>-->
+          <!--<input id="contactFormPhone" type="text" placeholder="Enter phone" name="phone" class="form-control input-lg required">-->
+          <!--</div>-->
+          <!--<div class="form-group sep-top-xs">-->
+          <!--<label for="contactFormEmail" class="upper">Your Email</label>-->
+          <!--<input id="contactFormEmail" type="email" placeholder="Enter email" name="senderEmail" class="form-control input-lg required email">-->
+          <!--</div>-->
+          <!--<div class="form-group sep-top-xs">-->
+          <!--<label for="contactFormComment" class="upper">Your comment</label>-->
+          <!--<textarea id="contactFormComment" placeholder="Enter comment" rows="9" name="comment" class="form-control input-lg required"></textarea>-->
+          <!--</div>-->
+          <!--<div data-wow-delay=".5s" class="form-group sep-top-xs wow bounceInRight">-->
+          <!--<button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-paper-plane"></i> Send message</button>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;input#subject.form-control.input-lg.required(type='text', placeholder='Subject of your message', name='subject')-->
+          <!--&ndash;&gt;-->
+          <!--</form>-->
+          <!--&lt;!&ndash;.hidden&ndash;&gt;-->
+          <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- End Parallax section-->
+
+  <!-- Start Footer section-->
+  <footer id="footer">
+    <div class="copyright sep-top-xs sep-bottom-xs">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12"><small>Copyright 2014 © Kleis Communication Technologies srl. All rights reserved.</small></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer section-->
+
+</div>
+
+<!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>-->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+
+<script src="app/theme/scripts/vendor/jquery.js"></script>
+<script src="app/theme/scripts/vendor/queryloader2.min.js"></script>
+<script src="app/theme/scripts/vendor/owl.carousel.js"></script>
+<script src="app/theme/scripts/vendor/jquery.ba-cond.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.slitslider.js"></script>
+<script src="app/theme/scripts/vendor/idangerous.swiper.js"></script>
+<script src="app/theme/scripts/vendor/jquery.fitvids.js"></script>
+<script src="app/theme/scripts/vendor/jquery.countTo.js"></script>
+<script src="app/theme/scripts/vendor/TweenMax.min.js"></script>
+<script src="app/theme/scripts/vendor/ScrollToPlugin.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.scrollmagic.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.easypiechart.js"></script>
+<script src="app/theme/scripts/vendor/jquery.validate.js"></script>
+<script src="app/theme/scripts/vendor/wow.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.placeholder.js"></script>
+<script src="app/theme/scripts/vendor/jquery.easing.1.3.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.waitforimages.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.prettyPhoto.js"></script>
+<script src="app/theme/scripts/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="app/theme/scripts/vendor/isotope.pkgd.min.js"></script>
+<script src="app/theme/scripts/vendor/jquery.fillparent.min.js"></script>
+<script src="app/theme/scripts/vendor/raphael-min.js"></script>
+<script src="app/theme/scripts/vendor/bootstrap.js"></script>
+<script src="app/theme/scripts/vendor/jquery.bootstrap-touchspin.min.js"></script>
+<script src="app/theme/scripts/vendor/bootstrap-slider.js"></script>
+<script src="app/theme/scripts/vendor/bootstrap-rating-input.js"></script>
+<script src="app/theme/scripts/vendor/bootstrap-hover-dropdown.min.js"></script>
+<script src="app/theme/scripts/jquery.gmap.min.js"></script>
+<script src="app/theme/scripts/circle_diagram.js"></script>
+<script src="app/theme/scripts/main.js"></script>
 <script src="app.js"></script>
+
+</body>
 </html>

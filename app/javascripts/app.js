@@ -2,12 +2,14 @@
 import "../stylesheets/app.css";
 
 // Import libraries we need.
-import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract'
+// import { default as Web3} from 'web3';
+import Web3 from 'web3'
+// import { default as contract } from 'truffle-contract'
+import contract from 'truffle-contract'
 
 import artifacts from '../../build/contracts/SpringsContract.json'
 
-var SpringsContract = contract(artifacts);
+var SpringsContract = contract(artifacts)
 var contractInstance;
 
 let fields = [];
@@ -31,7 +33,9 @@ $(document).ready(function() {
 
 function populateFields() {
   SpringsContract.deployed().then(function(contractInstance) {
+    console.log('contractInstance', contractInstance);
     contractInstance.fieldNames.call().then(function(names) {
+      console.log('contractInstance', names);
       for(let i=0; i < names.length; i++) {
         fields[i] = {
           id: i,
@@ -70,10 +74,13 @@ function populateFieldTokens() {
 function populateGlobalData() {
   SpringsContract.deployed().then(function(contractInstance) {
     contractInstance.totalTokens().then(function(v) {
-      $("#tokens-total").html(v.toString());
+      // $("#tokens-total").html(v.toString());
+      $("#tokens-total").attr('data-to', v.toString());
     });
     contractInstance.balanceTokens.call().then(function(v) {
-      $("#tokens-sold").html(v.toString());
+      // $("#tokens-sold").html(v.toString());
+      $("#tokens-sold").attr('data-to', v.toString());
+
       //TODO share = проданых токенов делить на все токены
       //$("#share").html();
     });
