@@ -66,7 +66,13 @@ function populateFieldTokens() {
       for(let i=0; i < fields.length; i++) {
         fields[i].tokens = tokens[i] ? tokens[i].toString() : 0;
       }
-      console.log(fields);
+      $.each(fields, function (i, item) {
+        var text = item.name + ' (' + item.tokens + ')';
+        $('#invest-field').append($('<option>', {
+          value: item.id,
+          text : text,
+        }));
+      });
     });
   });
 }
@@ -74,11 +80,9 @@ function populateFieldTokens() {
 function populateGlobalData() {
   SpringsContract.deployed().then(function(contractInstance) {
     contractInstance.totalTokens().then(function(v) {
-      // $("#tokens-total").html(v.toString());
       $("#tokens-total").attr('data-to', v.toString());
     });
     contractInstance.balanceTokens.call().then(function(v) {
-      // $("#tokens-sold").html(v.toString());
       $("#tokens-sold").attr('data-to', v.toString());
 
       //TODO share = проданых токенов делить на все токены
@@ -106,17 +110,16 @@ window.buyTokens = function(event) {
 
 window.invest = function(event) {
   event.preventDefault();
-  //TODO юзеры должны выбирать field из селектбокса
-  let field = 0;
+  let field = $("#invest-field").val();
   let tokens = $("#invest-tokens").val();
-  $("#msg").html('<p>Invesment has been submitted. Please wait until network will handle the transaction.</p>')
+  $(".invest-form #successMessage").show();
   $("#invest-tokens").val('');
 
   SpringsContract.deployed().then(function(contractInstance) {
     contractInstance.invest(field, tokens, {gas: 1400000, from: web3.eth.accounts[0]}).then(function() {
       //TODO update fields tokens
       populateFieldTokens();
-      $("#msg").html("");
+      $(".invest-form #successMessage").hide();
     });
   });
 }
