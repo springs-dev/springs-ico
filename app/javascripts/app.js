@@ -18,17 +18,27 @@ let tokenPrice = null;
 
 $(document).ready(function() {
   if (typeof web3 !== 'undefined') {
-    console.warn("Web3 detected in external source like Metamask")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
-  } else {
-    console.warn("No web3 detected. Falling back to http://localhost:8545. Only for local usage");
-    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-  }
 
-  SpringsContract.setProvider(web3.currentProvider);
-  populateFields();
+    if (web3.version.network == 4) {
+      SpringsContract.setProvider(web3.currentProvider);
+      populateFields();
+
+      if(web3.eth.accounts.length == 0) {
+        $('.global-warning .text').text('We cannot detect your address. Please make sure you authorized at least one Rinkeby address, so we can detect it in Web3.');
+        $('.global-warning').show();
+      }
+    } else {
+      $('.global-warning .text').html("Seems like your Mist or Metamask is not configured with Rinkeby test network. We cannot detect our deployed contract in it. Please switch to Rinkeby test network and reload this page.");
+      $('.global-warning').show();
+    }
+  } else {
+    $('.global-warning .text').html("Seems like you're not using either Mist or Metamask extension. We cannot detect Web3 provider. Please install Metamask from <a target='_blank' href='https://metamask.io/'>here</a> and configure it to Rinkeby test network.");
+    $('.global-warning').show();
+    //console.warn("No web3 detected. Falling back to http://localhost:8545. Only for local usage");
+    //window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  }
 });
 
 function populateFields() {
